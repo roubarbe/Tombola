@@ -8,16 +8,109 @@
 html,body{
     padding: 0;
     margin: 0;
-    background: #000;
+    /* background: #000 url('res/night-sky-background-14391263141jp.jpg'); */
+    font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
+}
+
+body{
+    background: #000 url('res/night-sky-background-14391263141jp.jpg');
 }
 
 #title{
-    color: #FFF;
+    background: linear-gradient(#30e7ff, #009cb1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 130pt;
     font-family: "Burbank";
     margin: 0 auto;
     text-align: center;
     color: #00e1ff;
-    margin-top: 140pt;
+    margin-top: 30pt;
     /* width: 100%; */
+}
+
+#configureDrawing{
+    margin: 0 auto;
+    width: 400pt;
+    background: #00bad3;
+    padding: 8pt;
+    border-radius: 4pt;
+    text-align: center;
+    /* display: none; */
+}
+
+#configureDrawing input, select, label{
+    font-size: 14pt;
+    /* margin: 4pt; */
+}
+
+#configureDrawing input{
+    /* display: block; */
+    margin: 4pt auto;
+    border-radius: 4pt;
+    border: none;
+    /* line-height: 30pt; */
+    /* text-align: center; */
+}
+
+#configureDrawing input[type=number]{
+    width: 15%;
+}
+
+#configureDrawing input[type=text]{
+    display:block;
+    width: 95%;
+    height: 200pt;
+    line-height: initial;
+    text-align: left;
+    font-size: 8pt;
+    font-family: Consolas, monospace;
+}
+
+#configureDrawing input[type=file]{
+    display:block;
+    text-align: center;
+}
+
+#mainDrawing{
+    width: 100%;
+    /* background: rgba(255, 255, 255, 0.425); */
+    color: #FFF;
+    display: none;
+}
+
+#mainDrawContainer{
+    background: rgba(173, 173, 173, 0.685);
+    display: flex;
+}
+
+#mainDrawing input[type=submit]{
+    width: 15%;
+    border: none;
+    border-radius: 4pt;
+    line-height: 40pt;
+    font-size: 20pt;
+    margin-top: 30pt;
+    background: #00bad3;
+    color: #FFF;
+}
+
+#winnersList{
+    /* display:inline; */
+    width:49%;
+    float:left;
+    text-align: center;
+}
+
+#participantsList{
+    /* display:inline; */
+    width:49%;
+    float:right;
+    text-align: center;
+}
+
+#submitButtonDiv{
+    clear:both;
+    width: 100%;
+    text-align: center;
 }

@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
         <link rel="stylesheet" href="main.css">
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="scripts/tombola.js"></script>
@@ -14,12 +16,38 @@
             {{ message }}
         </div>
 
-        <form onsubmit="return false;" id="configure">
-            <select id="typeData" v-model="selected">
-                <option v-for="option in options" v-bind:value="option.value">
-                    {{ option.text }}
-                </option>
-            </select>
+        <form onsubmit="startDrawing();return false;" id="configureDrawing">
+            <div>
+                <label for="typeData">{{ selectLabel }}</label>
+                <select id="typeData" v-model="selected" name="typeData">
+                    <option v-for="option in options" v-bind:value="option.value">
+                        {{ option.text }}
+                    </option>
+                </select>
+                <input type="text" name="dataText" id="dataText" v-if="selected == 1 || selected ==  2" v-bind:placeholder="participantsData.placeholder">
+                <input type="file" name="dataFile" id="dataFile" v-if="selected == 0" accept=".xls,xlsx">
+            </div>
+            
+            <div>
+                <label for="nbParticipants">{{ nbParticipants.label }}</label>
+                <input type="number" name="nbParticipants" id="nbParticipants" v-bind:placeholder="nbParticipants.placeholder"><br>
+            </div>
+            
+            <input type="submit" v-bind:value="submitText">
+        </form>
+
+        <form id="mainDrawing" onsubmit="mainDrawing.draw(); return false;">
+            <div id="mainDrawContainer">
+                <div id="winnersList" class="animated fadeInLeft faster">
+                    <h1>{{ winners }}</h1>
+                    <div v-for="winner in winnersList" class="animated fadeInLeft slow">{{ winner }}</div>
+                </div>
+                <div id="participantsList" class="animated fadeInRight faster">
+                    <h1>{{ participants }}</h1>
+                    <div v-for="participant in participantsList">{{ participant }}</div>
+                </div>
+            </div>
+            <div id="submitButtonDiv"><input type="submit" v-bind:value="submit"></div>
         </form>
 
         <script src="scripts/main.js"></script>
