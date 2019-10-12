@@ -10,7 +10,7 @@ class TombolaJS{
             this.nbOfWinners = this.drawingList.length;
         }
         else{
-            this.nbOfWinners == nbOfWinners;
+            this.nbOfWinners = nbOfWinners;
         }
         
         //Set list of drawed participants as an array;
@@ -18,23 +18,37 @@ class TombolaJS{
     }
 
     draw(){
-        let winner = "";
         
-        if(this.drawingList.length > 1){
-            let randomNumber = Math.round(Math.random() * this.drawingList.length);
-            console.log(randomNumber);
+        //If amount of drawed participants is smaller than the allowed number of winners
+        if(this.drawed.length < this.nbOfWinners){
             
-            winner = this.drawingList.splice(randomNumber, 1).toString();
+            //If the length of active participants is more than 0
+            if(this.drawingList.length > 0){
+                
+                //Choose a random number between 0 and length of number of participants remaining
+                let randomNumber = Math.floor(Math.random() * this.drawingList.length);
+
+                //console.log("Length of drawingList: "+this.drawingList.length+", Number rolled: "+randomNumber);
+                
+                //We're storing the winner in a variable, as a return to removing it from the list of participants
+                let winner = this.drawingList.splice(randomNumber, 1).toString();
+
+                //console.log("Winner: "+winner);
+                
+                //And we're inserting it into the list of drawed participants
+                this.drawed.push(winner);
+                
+            }
             
-            this.drawed.push(winner);
-            
-            console.log(this.drawingList);
+            //If the length of the drawing list is 0, this means it's empty, so everyone won!
+            else{
+                console.log("Everybody won!");
+            }
         }
-        else if(this.drawingList.length == 1){
-            winner = this.drawingList[0];
-        }
+        
+        //If the length of the drawed participants equals (or is greater than?) the amount of allowed winners
         else{
-            console.log("Everybody won!");
+            console.log("Reached possible limit of winners!");
         }
     }
 }

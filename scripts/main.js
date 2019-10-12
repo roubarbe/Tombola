@@ -16,3 +16,22 @@ let drawingList = [
     "Xavier",
     "Alexandre"
 ];
+
+let title = new Vue({
+    el: "#title",
+    data: {
+        message: "Tombola"
+    }
+});
+
+let formDataTypeSelect = new Vue({
+    el: "#typeData",
+    data:{
+        selected:"0",
+        options:[
+            {text: "Excel file", value: "0"},
+            {text: "Text", value: "1"},
+            {text: "JSON file", value: "2"}
+        ]
+    }
+});

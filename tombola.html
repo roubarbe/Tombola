@@ -4,11 +4,24 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="main.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="scripts/tombola.js"></script>
-        <script src="scripts/main.js"></script>
         <title>Tombola</title>
     </head>
     <body>
-        
+        <div id="title">
+            {{ message }}
+        </div>
+
+        <form onsubmit="return false;" id="configure">
+            <select id="typeData" v-model="selected">
+                <option v-for="option in options" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+        </form>
+
+        <script src="scripts/main.js"></script>
     </body>
 </html>

@@ -8,5 +8,16 @@
 html,body{
     padding: 0;
     margin: 0;
+    background: #000;
 }
 
+#title{
+    color: #FFF;
+    font-size: 130pt;
+    font-family: "Burbank";
+    margin: 0 auto;
+    text-align: center;
+    color: #00e1ff;
+    margin-top: 140pt;
+    /* width: 100%; */
+}
