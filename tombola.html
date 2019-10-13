@@ -24,7 +24,7 @@
                         {{ option.text }}
                     </option>
                 </select>
-                <input type="text" name="dataText" id="dataText" v-if="selected == 1 || selected ==  2" v-bind:placeholder="participantsData.placeholder">
+                <textarea name="dataText" id="dataText" v-if="selected == 1 || selected ==  2" v-bind:placeholder="participantsData.placeholder"></textarea>
                 <input type="file" name="dataFile" id="dataFile" v-if="selected == 0" accept=".xls,xlsx">
             </div>
             
@@ -40,7 +40,7 @@
             <div id="mainDrawContainer">
                 <div id="winnersList" class="animated fadeInLeft faster">
                     <h1>{{ winners }}</h1>
-                    <div v-for="winner in winnersList" class="animated fadeInLeft slow">{{ winner }}</div>
+                    <div v-for="winner in winnersList">{{ winner }}</div>
                 </div>
                 <div id="participantsList" class="animated fadeInRight faster">
                     <h1>{{ participants }}</h1>

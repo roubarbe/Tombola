@@ -71,17 +71,13 @@ let mainDrawing = new Vue({
     },
     methods:{
         update: function(){
-            //this.winnersList = newDraw.drawed;
-            //this.participantsList = newDraw.drawingList;
-            let newWinnersArray = newDraw.drawed;
-            this.winnersList = newWinnersArray;
-
-            let newParticipantsArray = newDraw.drawingList;
-            this.participantsList = newParticipantsArray;
+            this.winnersList = newDraw.drawed;
+            this.participantsList = newDraw.drawingList;
         },
         draw: function(){
             newDraw.draw();
             this.update();
+            //title.message = newDraw.drawed[newDraw.drawed.length-1];
         }
     }
 });

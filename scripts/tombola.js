@@ -18,14 +18,6 @@ class TombolaJS{
         this.drawed = [];
     }
 
-    static get drawed() {
-        return drawed;
-    }
-
-    static get drawingList() {
-        return drawingList;
-    }
-
     draw(){
         
         //If amount of drawed participants is smaller than the allowed number of winners
